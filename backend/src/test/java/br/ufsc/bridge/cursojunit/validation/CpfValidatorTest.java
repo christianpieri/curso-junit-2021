@@ -5,23 +5,23 @@ import org.junit.Test;
 
 public class CpfValidatorTest {
 
-	public static void testaTudo() {
-		assegureQueCpfComCaracteresEspeciaisSejaInvalido();
-		assegureQueCpfComEspaçosSejaInvalido();
-		assegureQueCpfComExatamente10SejaInvalido();
-		assegureQueCpfComExatamente12SejaInvalido();
-		assegureQueCpfComLetrasSejaInvalido();
-		assegureQueCpfComValorCorretoEComCaracteresEspeciaisSejaInvalido();
-		assegureQueCpfComValorDeCalculoDoCpfErradoSejaInvalido();
-		assegureQueCpfCorretoSejaValido();
-		assegureQueCpfNuloSejaInvalido();
-		assegureQueCpfNumerosIguaisSejaInvalido();
-		assegureQueCpfVazioSejaInvalido();
+	public void testaTudo() {
+		this.assegureQueCpfComCaracteresEspeciaisSejaInvalido();
+		this.assegureQueCpfComEspaçosSejaInvalido();
+		this.assegureQueCpfComExatamente10SejaInvalido();
+		this.assegureQueCpfComExatamente12SejaInvalido();
+		this.assegureQueCpfComLetrasSejaInvalido();
+		this.assegureQueCpfComValorCorretoEComCaracteresEspeciaisSejaInvalido();
+		this.assegureQueCpfComValorDeCalculoDoCpfErradoSejaInvalido();
+		this.assegureQueCpfCorretoSejaValido();
+		this.assegureQueCpfNuloSejaInvalido();
+		this.assegureQueCpfNumerosIguaisSejaInvalido();
+		this.assegureQueCpfVazioSejaInvalido();
 	}
 
 	// testes cpf validator
 	@Test
-	public static void assegureQueCpfComExatamente12SejaInvalido() {
+	public void assegureQueCpfComExatamente12SejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "012345678901";
@@ -34,7 +34,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComExatamente10SejaInvalido() {
+	public void assegureQueCpfComExatamente10SejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "0123456789";
@@ -47,7 +47,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfNuloSejaInvalido() {
+	public void assegureQueCpfNuloSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = null;
@@ -60,7 +60,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComEspaçosSejaInvalido() {
+	public void assegureQueCpfComEspaçosSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "           ";
@@ -73,7 +73,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComLetrasSejaInvalido() {
+	public void assegureQueCpfComLetrasSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "Davi";
@@ -86,7 +86,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComCaracteresEspeciaisSejaInvalido() {
+	public void assegureQueCpfComCaracteresEspeciaisSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "//.._______";
@@ -99,7 +99,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfNumerosIguaisSejaInvalido() {
+	public void assegureQueCpfNumerosIguaisSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "11111111111";
@@ -112,7 +112,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComValorCorretoEComCaracteresEspeciaisSejaInvalido() {
+	public void assegureQueCpfComValorCorretoEComCaracteresEspeciaisSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "085.068.009-35";
@@ -125,7 +125,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfVazioSejaInvalido() {
+	public void assegureQueCpfVazioSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "";
@@ -138,7 +138,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfComValorDeCalculoDoCpfErradoSejaInvalido() {
+	public void assegureQueCpfComValorDeCalculoDoCpfErradoSejaInvalido() {
 
 		// Descricoes dos passos
 		String cpf = "12345678912";
@@ -151,7 +151,7 @@ public class CpfValidatorTest {
 	}
 
 	@Test
-	public static void assegureQueCpfCorretoSejaValido() {
+	public void assegureQueCpfCorretoSejaValido() {
 
 		// Descricoes dos passos
 		String cpf = "08506800935";

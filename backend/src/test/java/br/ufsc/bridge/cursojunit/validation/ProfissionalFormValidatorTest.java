@@ -24,170 +24,163 @@ public class ProfissionalFormValidatorTest {
 	}
 
 	@Test
-	public void verificaSeOCampodeCpfEhObrigatorio() {
-
-		// passos
-		this.form.setCpfProfissional(null);
-
-		// validator
-		ProfissionalFormValidator.validate(this.form, this.erros);
-
-		// assegure
-		Assert.assertEquals(1, this.erros.getErrorList().size());
-
-	}
-
-	@Test
-	public void verificaSeOCampodeCnsEhObrigatorio() {
-
-		// passos
-		this.form.setCnsProfissional(null);
-
-		// validator
-		ProfissionalFormValidator.validate(this.form, this.erros);
-
-		// assegure
-		Assert.assertEquals(1, this.erros.getErrorList().size());
-
-	}
-
-	@Test
 	public void verificaSeOCampodeNomeEhObrigatorio() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setNomeProfissional(null);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
-	// Teste mostrou erro nas especificacoes
+	@Test
+	public void verificaSeOCampodeSexoEhObrigatorio() {
+
+		// Descricoes dos passos
+		this.form.setSexoProfissional(null);
+
+		// Descricoes das acoes
+		ProfissionalFormValidator.validate(this.form, this.erros);
+
+		// Assegure que
+		Assert.assertEquals(1, this.erros.getErrorList().size());
+
+	}
+
 	@Test
 	public void verificaSeOCampodeDataNascEhObrigatorio() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setDtNascProfissional(null);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeOCpfComCampovazioEhValido() {
+	public void fazAVerificacaoDoCpf() {
 
-		// passos
-		this.form.setCpfProfissional("");
-
-		// validator
-		ProfissionalFormValidator.validate(this.form, this.erros);
-
-		// assegure
-		Assert.assertEquals(1, this.erros.getErrorList().size());
+		// Descricoes dos passos
+		CpfValidatorTest test = new CpfValidatorTest();
+		test.testaTudo();
 
 	}
 
 	@Test
-	public void verificaSeOCpfComNumerosIguaisEhValido() {
+	public void fazAVerificacaoDoCns() {
 
-		// passos
-		CpfValidatorTest.testaTudo();
+		// Descricoes dos passos
+		CnsValidatorTest test = new CnsValidatorTest();
+		test.testaTudo();
 
 	}
 
-	// Fazer CNS
-
 	@Test
-	public void verificaSeUbsReferenciaNuloEhValido() {
+	public void verificaSeUbsReferenciaNuloEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setUbsReferencia(null);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeUbsReferenciaComNomeDiferenteEhValido() {
+	public void verificaSeUbsReferenciaComNomeDiferenteEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.formUbs = new UnidadeBasicaSaudeForm();
 		this.formUbs.setNomeUbs("Floripa");
 		this.form.setUbsReferencia(this.formUbs);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeUbsReferenciaSemNadaEhValido() {
+	public void verificaSeUbsReferenciaSemNadaEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.formUbs = new UnidadeBasicaSaudeForm();
 		this.formUbs.setNomeUbs("");
 		this.form.setUbsReferencia(this.formUbs);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeADataNascNulaEhValido() {
+	public void verificaSeADataNascNulaEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setDtNascProfissional(null);
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeADataNascAgoraEhValido() {
+	public void verificaSeADataNascAntesEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setDtNascProfissional(this.localDate = LocalDate.parse("2000-09-29"));
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
+
+	}
+
+	@Test
+	public void verificaSeADataNascDepoisEhValido() {
+
+		// Descricoes dos passos
+		this.form.setDtNascProfissional(this.localDate = LocalDate.parse("2022-09-29"));
+
+		// Descricoes das acoes
+		ProfissionalFormValidator.validate(this.form, this.erros);
+
+		// Assegure que
+		Assert.assertEquals(0, this.erros.getErrorList().size());
 
 	}
 
 	@Test
 	public void verificaSeONumeroMaxDeCaracteresDoNomeCom71EhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setNomeProfissional("abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdea");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -195,13 +188,13 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeONumeroMaxDeCaracteresDoNomeCom70EhValido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setNomeProfissional("abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(0, this.erros.getErrorList().size());
 
 	}
@@ -209,27 +202,27 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeONomeComNumeroEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setNomeProfissional("1234567890123");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
 
 	@Test
-	public void verificaSeONomeComCaracteresCEhInvalido() {
+	public void verificaSeONomeComCaracteresEspeciaisEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setNomeProfissional("...@@!#!@#!@#!@#");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -237,13 +230,13 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeNumeroDeTelefoneVazioEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setTelefoneProfissional("");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -251,13 +244,13 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeNumeroDeTelefoneComEspaçoEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setTelefoneProfissional("  ");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -265,13 +258,13 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeNumeroDeTelefoneSemDDDEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setTelefoneProfissional("991072375");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -279,13 +272,27 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeNumeroDeTelefoneComDDDErradoEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setTelefoneProfissional("111991072375");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
+		Assert.assertEquals(1, this.erros.getErrorList().size());
+
+	}
+
+	@Test
+	public void verificaSeNumeroDeTelefoneComCaracteresEspeciaisEhInvalido() {
+
+		// Descricoes dos passos
+		this.form.setTelefoneProfissional("111991072375");
+
+		// Descricoes das acoes
+		ProfissionalFormValidator.validate(this.form, this.erros);
+
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
 
 	}
@@ -293,14 +300,25 @@ public class ProfissionalFormValidatorTest {
 	@Test
 	public void verificaSeNumeroDeTelefoneCom7NumerosEhInvalido() {
 
-		// passos
+		// Descricoes dos passos
 		this.form.setTelefoneProfissional("0481072375");
 
-		// validator
+		// Descricoes das acoes
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
-		// assegure
+		// Assegure que
 		Assert.assertEquals(1, this.erros.getErrorList().size());
+
+	}
+
+	@Test
+	public void verificaSeOFormularioCorretoEhValido() {
+
+		// Descricoes das acoes
+		ProfissionalFormValidator.validate(this.form, this.erros);
+
+		// Assegure que
+		Assert.assertEquals(0, this.erros.getErrorList().size());
 
 	}
 

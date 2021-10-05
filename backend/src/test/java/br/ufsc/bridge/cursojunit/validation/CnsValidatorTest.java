@@ -5,6 +5,16 @@ import org.junit.Test;
 
 public class CnsValidatorTest {
 
+	public void testaTudo() {
+		this.assegureQueCnsCom14EhInvalido();
+		this.assegureQueCnsCom16EhInvalido();
+		this.assegureQueCnsComCaracteresEspeciaisInvalido();
+		this.assegureQueCnsComEspacoEhInvalido();
+		this.assegureQueCnsNuloEhInvalido();
+		this.assegureQueCnsSejaValido();
+		this.assegureQueCnsVazioEhInvalido();
+	}
+
 	// Testes cns validator
 	@Test
 	public void assegureQueCnsSejaValido() {
@@ -37,6 +47,58 @@ public class CnsValidatorTest {
 
 		// Descricoes dos passos
 		String cns = "88888888000000";
+
+		// Descricoes das acoes
+		boolean isValid = CnsValidator.isValid(cns);
+
+		// Assegure que
+		Assert.assertFalse(isValid);
+	}
+
+	@Test
+	public void assegureQueCnsNuloEhInvalido() {
+
+		// Descricoes dos passos
+		String cns = null;
+
+		// Descricoes das acoes
+		boolean isValid = CnsValidator.isValid(cns);
+
+		// Assegure que
+		Assert.assertFalse(isValid);
+	}
+
+	@Test
+	public void assegureQueCnsVazioEhInvalido() {
+
+		// Descricoes dos passos
+		String cns = "";
+
+		// Descricoes das acoes
+		boolean isValid = CnsValidator.isValid(cns);
+
+		// Assegure que
+		Assert.assertFalse(isValid);
+	}
+
+	@Test
+	public void assegureQueCnsComEspacoEhInvalido() {
+
+		// Descricoes dos passos
+		String cns = "  ";
+
+		// Descricoes das acoes
+		boolean isValid = CnsValidator.isValid(cns);
+
+		// Assegure que
+		Assert.assertFalse(isValid);
+	}
+
+	@Test
+	public void assegureQueCnsComCaracteresEspeciaisInvalido() {
+
+		// Descricoes dos passos
+		String cns = "@@##$!@#!@#!@$";
 
 		// Descricoes das acoes
 		boolean isValid = CnsValidator.isValid(cns);
