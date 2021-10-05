@@ -43,7 +43,7 @@ public class ProfissionalFormValidatorTest {
 		// Descricoes dos passos
 		this.form.setSexoProfissional(null);
 
-		// Descricoes das acoes
+		// Descricoes das acoess
 		ProfissionalFormValidator.validate(this.form, this.erros);
 
 		// Assegure que
